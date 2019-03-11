@@ -1,0 +1,19 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: @pom.artifactId@
+zuul:
+  routes:
+    uac:
+      path: /api/uac/**
+        sensitiveHeaders:
+        serviceId: pili-provider-uac
+    uaa:
+      path: /api/uaa/**
+        sensitiveHeaders:
+        serviceId: pili-security
+    mdc:
+      path: /api/mdc/**
+        sensitiveHeaders:
+        serviceId: pili-provider-mdc

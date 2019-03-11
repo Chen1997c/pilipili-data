@@ -1,0 +1,13 @@
+server:
+  port: 7035
+spring:
+  application:
+    name: @pom.artifactId@
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql:///pili_base_db?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root

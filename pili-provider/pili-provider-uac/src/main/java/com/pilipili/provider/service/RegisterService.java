@@ -23,4 +23,11 @@ public interface RegisterService {
      * @param user
      */
     void register(User user);
+
+    /**
+     * 生成验证码 并发送邮件
+     * @param email
+     * @return
+     */
+    String generateEmailCode(String email);
 }

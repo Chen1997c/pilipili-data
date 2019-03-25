@@ -12,6 +12,7 @@
         <module>pili-common</module>
         <module>pili-security</module>
         <module>pili-monitor</module>
+        <module>pili-resource</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

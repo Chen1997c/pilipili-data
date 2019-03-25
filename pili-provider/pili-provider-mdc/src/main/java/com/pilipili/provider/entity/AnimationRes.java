@@ -33,6 +33,12 @@ public class AnimationRes {
     private String name;
 
     /**
+     * 播放序列
+     */
+    @Column(nullable = false)
+    private Integer playOrder;
+
+    /**
      * 路径
      */
     @Column(nullable = false)

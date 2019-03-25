@@ -56,6 +56,12 @@ public class Animation {
      */
     private Integer startSeason;
 
+    /**
+     * 是否完结 1:是 0:否
+     */
+    @Column(nullable = false)
+    private Integer isEnd;
+
 
     /**
      * 更新时间

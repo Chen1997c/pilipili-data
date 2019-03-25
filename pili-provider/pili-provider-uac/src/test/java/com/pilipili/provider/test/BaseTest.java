@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Random;
+
 
 /**
  * 描述： test case
@@ -14,12 +16,15 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @author ChenJianChuan
  * @date 2019/3/6　10:40
  */
-@SpringBootTest(classes = PiliProviderUacApplication.class)
-@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = PiliProviderUacApplication.class)
+//@RunWith(SpringRunner.class)
 public class BaseTest {
 
     @Test
     public void doTest() {
-        System.out.println(new BCryptPasswordEncoder().encode("123456"));
+//        new Random().nextInt();
+        for(int a=0;a<20;a++) {
+            System.out.println(new Random().nextInt(10));
+        }
     }
 }

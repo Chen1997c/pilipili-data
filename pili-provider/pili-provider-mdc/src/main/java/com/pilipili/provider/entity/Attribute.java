@@ -10,53 +10,27 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 番剧详细信息实体
+ * 描述： 属性实体
  *
  * @author ChenJianChuan
- * @date 2019/3/9　9:04
+ * @date 2019/3/21　10:41
  */
 @Data
 @ToString
 @Entity
-@Table(name = "animation_details")
+@Table(name = "attribute")
 @EntityListeners(AuditingEntityListener.class)
-public class AnimationDetails {
+public class Attribute {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 原名
+     * 属性名称
      */
-    @Column(length = 50, nullable = false)
-    private String originName;
-
-    /**
-     * 集数
-     */
-    private Integer Episodes;
-
-    /**
-     * 简介
-     */
-    private String profiles;
-
-    /**
-     * 更新信息
-     */
-    @Column(length = 50)
-    private String updateInfo;
-
-    /**
-     * 播放量
-     */
-    private Long playAmount = 0L;
-
-    /**
-     * 食物量
-     */
-    private Long foodAmount = 0L;
+    @Column(length = 20, nullable = false)
+    private String attrName;
 
     /**
      * 更新时间
@@ -69,5 +43,4 @@ public class AnimationDetails {
      */
     @CreatedDate
     private Date gmtCreate;
-
 }

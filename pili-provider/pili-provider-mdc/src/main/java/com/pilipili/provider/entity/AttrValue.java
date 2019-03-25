@@ -10,72 +10,39 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 视频实体
+ * 描述： 属性值实体
  *
  * @author ChenJianChuan
- * @date 2019/3/8　17:14
+ * @date 2019/3/21　10:50
  */
 @Data
 @ToString
 @Entity
-@Table(name = "video")
+@Table(name = "attr_value")
 @EntityListeners(AuditingEntityListener.class)
-public class Video {
+public class AttrValue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 题目
-     */
-    @Column(length = 30, nullable = false)
-    private String title;
-
-    /**
-     * 投稿人id
+     * 属性值代码
      */
     @Column(nullable = false)
-    private Long postUserId;
+    private String valueCode;
 
     /**
-     * 简介
+     * 属性值名称
      */
-    private String profiles;
+    @Column(length = 20, nullable = false)
+    private String valueName;
 
     /**
-     * 播放量
-     */
-    private Long playAmount = 0L;
-
-    /**
-     * 时长
-     */
-    private String duration;
-
-
-    /**
-     * 资源路径
+     * 属性id
      */
     @Column(nullable = false)
-    private String resUrl;
-
-    /**
-     * 封面路径
-     */
-    @Column(nullable = false)
-    private String coverUrl;
-
-    /**
-     * 发布时间
-     */
-    @Column(nullable = false)
-    private Date postDate;
-
-    /**
-     * 是否推荐
-     */
-    private Boolean recommend = false;
+    private Long attrId;
 
     /**
      * 更新时间

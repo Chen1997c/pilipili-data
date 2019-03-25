@@ -10,72 +10,37 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 视频实体
+ * 描述： 喂食实体
  *
  * @author ChenJianChuan
- * @date 2019/3/8　17:14
+ * @date 2019/3/22　9:37
  */
 @Data
 @ToString
 @Entity
-@Table(name = "video")
+@Table(name = "feeding")
 @EntityListeners(AuditingEntityListener.class)
-public class Video {
+public class Feeding {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 题目
-     */
-    @Column(length = 30, nullable = false)
-    private String title;
-
-    /**
-     * 投稿人id
+     * 用户id
      */
     @Column(nullable = false)
-    private Long postUserId;
+    private Long userId;
 
     /**
-     * 简介
+     * 视频id
      */
-    private String profiles;
-
-    /**
-     * 播放量
-     */
-    private Long playAmount = 0L;
+    private Long videoId;
 
     /**
      * 时长
      */
     private String duration;
-
-
-    /**
-     * 资源路径
-     */
-    @Column(nullable = false)
-    private String resUrl;
-
-    /**
-     * 封面路径
-     */
-    @Column(nullable = false)
-    private String coverUrl;
-
-    /**
-     * 发布时间
-     */
-    @Column(nullable = false)
-    private Date postDate;
-
-    /**
-     * 是否推荐
-     */
-    private Boolean recommend = false;
 
     /**
      * 更新时间

@@ -11,3 +11,12 @@ spring:
     url: jdbc:mysql:///pili_base_db?useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+web:
+  upload-path:
+    D:/pilipili_data/temp/
+  static-path:
+    images:
+      # 视频封面路径
+      video_cover: /images/video_cover/

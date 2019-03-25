@@ -10,53 +10,32 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 番剧详细信息实体
+ * 描述： 视频收藏实体
  *
  * @author ChenJianChuan
- * @date 2019/3/9　9:04
+ * @date 2019/3/22　9:29
  */
 @Data
 @ToString
 @Entity
-@Table(name = "animation_details")
+@Table(name = "video_collection")
 @EntityListeners(AuditingEntityListener.class)
-public class AnimationDetails {
+public class VideoCollection {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 原名
+     * 用户id
      */
-    @Column(length = 50, nullable = false)
-    private String originName;
+    @Column(nullable = false)
+    private Long userId;
 
     /**
-     * 集数
+     * 视频id
      */
-    private Integer Episodes;
-
-    /**
-     * 简介
-     */
-    private String profiles;
-
-    /**
-     * 更新信息
-     */
-    @Column(length = 50)
-    private String updateInfo;
-
-    /**
-     * 播放量
-     */
-    private Long playAmount = 0L;
-
-    /**
-     * 食物量
-     */
-    private Long foodAmount = 0L;
+    private Long videoId;
 
     /**
      * 更新时间
@@ -69,5 +48,4 @@ public class AnimationDetails {
      */
     @CreatedDate
     private Date gmtCreate;
-
 }

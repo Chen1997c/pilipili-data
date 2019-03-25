@@ -10,72 +10,44 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 视频实体
+ * 描述： 番剧评分实体
  *
  * @author ChenJianChuan
- * @date 2019/3/8　17:14
+ * @date 2019/3/21　19:28
  */
 @Data
 @ToString
 @Entity
-@Table(name = "video")
+@Table(name = "animation_score")
 @EntityListeners(AuditingEntityListener.class)
-public class Video {
+public class AnimationScore {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 题目
-     */
-    @Column(length = 30, nullable = false)
-    private String title;
-
-    /**
-     * 投稿人id
+     * 用户id
      */
     @Column(nullable = false)
-    private Long postUserId;
+    private Long userId;
 
     /**
-     * 简介
-     */
-    private String profiles;
-
-    /**
-     * 播放量
-     */
-    private Long playAmount = 0L;
-
-    /**
-     * 时长
-     */
-    private String duration;
-
-
-    /**
-     * 资源路径
+     * 番剧id
      */
     @Column(nullable = false)
-    private String resUrl;
+    private Long animationId;
 
     /**
-     * 封面路径
+     * 分数
      */
     @Column(nullable = false)
-    private String coverUrl;
+    private Integer score;
 
     /**
-     * 发布时间
+     * 评论消息
      */
-    @Column(nullable = false)
-    private Date postDate;
-
-    /**
-     * 是否推荐
-     */
-    private Boolean recommend = false;
+    private String commentMessage;
 
     /**
      * 更新时间

@@ -1,7 +1,7 @@
-package com.pilipili.security.feign.impl;
+package com.pilipili.security.feign.fallback;
 
 import com.pilipili.common.util.ResultWrapper;
-import com.pilipili.security.feign.LoginFeignClient;
+import com.pilipili.security.feign.LoginFeignService;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @date 2019/3/6　14:38
  */
 @Component
-public class LoginFeignClientImpl implements LoginFeignClient {
+public class LoginFeignServiceImpl implements LoginFeignService {
 
     @Override
     public ResultWrapper login(String loginName) {

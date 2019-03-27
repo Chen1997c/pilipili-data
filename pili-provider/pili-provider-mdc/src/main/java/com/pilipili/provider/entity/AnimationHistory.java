@@ -10,37 +10,33 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 喂食实体
+ * 描述： 番剧观看历史实体
  *
  * @author ChenJianChuan
- * @date 2019/3/22　9:37
+ * @date 2019/3/27　16:27
  */
 @Data
 @ToString
 @Entity
-@Table(name = "feeding")
+@Table(name = "animation_history")
 @EntityListeners(AuditingEntityListener.class)
-public class Feeding {
+public class AnimationHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
+     * 番剧资源实体
+     */
+    @JoinColumn(name = "animation_res_id", nullable = false)
+    @ManyToOne
+    private AnimationRes animationRes;
+    /**
      * 用户id
      */
     @Column(nullable = false)
     private Long userId;
-
-    /**
-     * 投食目标id
-     */
-    private Long refId;
-
-    /**
-     * 投食类型 1番剧 2视频
-     */
-    private Integer feedType;
 
     /**
      * 更新时间

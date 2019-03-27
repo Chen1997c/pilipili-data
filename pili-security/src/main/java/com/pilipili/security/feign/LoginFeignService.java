@@ -1,7 +1,7 @@
 package com.pilipili.security.feign;
 
 import com.pilipili.common.util.ResultWrapper;
-import com.pilipili.security.feign.impl.LoginFeignClientImpl;
+import com.pilipili.security.feign.fallback.LoginFeignServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author ChenJianChuan
  * @date 2019/3/6　14:33
  */
-@FeignClient(name = "pili-provider-uac", fallback = LoginFeignClientImpl.class)
-public interface LoginFeignClient {
+@FeignClient(name = "pili-provider-uac", fallback = LoginFeignServiceImpl.class)
+public interface LoginFeignService {
 
     /**
      * 登陆查询服务调用

@@ -3,6 +3,7 @@ package com.pilipili.provider.dao;
 import com.pilipili.provider.entity.Video;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,5 +20,12 @@ public interface VideoDAO extends JpaRepository<Video, Long> {
      * @return
      */
     List<Video> findAllByRecommend(boolean recommend);
+
+    /**
+     * 根据播放量和发布日期查询全部
+     * @param postDate
+     * @return
+     */
+    List<Video> findAllByPostDateAfterOrderByPlayAmountDesc(Date postDate);
 
 }

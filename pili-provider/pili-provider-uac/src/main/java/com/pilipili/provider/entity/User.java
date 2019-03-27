@@ -45,6 +45,11 @@ public class User {
     private String nickName;
 
     /**
+     * 头像路径
+     */
+    private String avatarUrl;
+
+    /**
      * 状态码(1 正常 0 不可用 -1 删除)
      */
     private Integer statusCd = 1;

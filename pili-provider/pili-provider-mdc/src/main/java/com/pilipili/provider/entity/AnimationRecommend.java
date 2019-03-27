@@ -10,37 +10,34 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 描述： 喂食实体
+ * 描述： 番剧推荐实体
  *
  * @author ChenJianChuan
- * @date 2019/3/22　9:37
+ * @date 2019/3/26　20:30
  */
 @Data
 @ToString
 @Entity
-@Table(name = "feeding")
+@Table(name = "animation_recommend")
 @EntityListeners(AuditingEntityListener.class)
-public class Feeding {
+public class AnimationRecommend {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 用户id
+     * 封面url
      */
-    @Column(nullable = false)
-    private Long userId;
+    private String recommendCoverUrl;
 
     /**
-     * 投食目标id
+     * 番剧实体
      */
-    private Long refId;
-
-    /**
-     * 投食类型 1番剧 2视频
-     */
-    private Integer feedType;
+    @JoinColumn(name = "animation_id", nullable = false)
+    @OneToOne
+    private Animation animation;
 
     /**
      * 更新时间
@@ -53,4 +50,5 @@ public class Feeding {
      */
     @CreatedDate
     private Date gmtCreate;
+
 }

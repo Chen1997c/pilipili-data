@@ -1,5 +1,6 @@
 package com.pilipili.provider.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
@@ -70,6 +71,7 @@ public class Video {
      * 发布时间
      */
     @Column(nullable = false)
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss", timezone = "GMT+8")
     private Date postDate;
 
     /**

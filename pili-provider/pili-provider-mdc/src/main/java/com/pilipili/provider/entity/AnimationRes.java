@@ -47,10 +47,9 @@ public class AnimationRes {
     /**
      * 集名
      */
-    @Column(length = 20, nullable = false)
     private String episodeName;
 
-    @JoinColumn(name = "animation_id")
+    @JoinColumn(name = "animation_id", nullable = false)
     @ManyToOne
     private Animation animation;
 

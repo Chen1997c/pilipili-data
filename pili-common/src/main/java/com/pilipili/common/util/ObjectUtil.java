@@ -2,6 +2,9 @@ package com.pilipili.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.CollectionUtils;
+
+import java.util.*;
 
 /**
  * 描述： 类型转换工具类
@@ -29,4 +32,29 @@ public class ObjectUtil {
         }
         return null;
     }
+
+    /**
+     * 随机获取list中n个值
+     * @param list
+     * @param generateNum
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> generateRandomDataNoRepeat(List<T> list,Integer generateNum){
+        Map map = new HashMap(16);
+        List<T> listNew = new ArrayList<>();
+        if (list.size() <= generateNum || CollectionUtils.isEmpty(list)) {
+            return list;
+        } else {
+            while (map.size() < generateNum) {
+                int random = (int) (Math.random() * list.size());
+                if (!map.containsKey(random)) {
+                    map.put(random, "");
+                    listNew.add(list.get(random));
+                }
+            }
+        }
+        return listNew;
+    }
+
 }

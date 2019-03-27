@@ -57,11 +57,9 @@ public class Animation {
     private Integer startSeason;
 
     /**
-     * 是否完结 1:是 0:否
+     * 最后更新时间
      */
-    @Column(nullable = false)
-    private Integer isEnd;
-
+    private Date lastUpdateTime;
 
     /**
      * 更新时间

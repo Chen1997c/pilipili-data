@@ -26,4 +26,20 @@ public class VideoDTO {
      * 标签列表
      */
     private List<Label> labels;
+
+    /**
+     * 评论量
+     */
+    private Long commentAmount;
+
+    /**
+     * 发布人昵称
+     */
+    private String nickName;
+
+    /**
+     * 头像url
+     */
+    private String avatarUrl;
+
 }

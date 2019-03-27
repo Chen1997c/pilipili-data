@@ -20,3 +20,5 @@ web:
     images:
       # 视频封面路径
       video_cover: /images/video_cover/
+      # 用户头像地址
+      user_avatar: /images/user/avatar/

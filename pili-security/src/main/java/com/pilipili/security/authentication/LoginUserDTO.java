@@ -38,6 +38,11 @@ public class LoginUserDTO {
     private String nickName;
 
     /**
+     * 头像路径
+     */
+    private String avatarUrl;
+
+    /**
      * 状态码(1 正常 0 不可用 -1 待删除)
      */
     private Integer statusCd;

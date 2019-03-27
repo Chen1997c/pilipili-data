@@ -35,7 +35,7 @@ public class AnimationDetails {
     /**
      * 集数
      */
-    private Integer Episodes;
+    private Integer episodes;
 
     /**
      * 简介
@@ -54,9 +54,16 @@ public class AnimationDetails {
     private Long playAmount = 0L;
 
     /**
-     * 食物量
+     * 番剧实体
      */
-    private Long foodAmount = 0L;
+    @JoinColumn(name = "animation_id", nullable = false)
+    @OneToOne
+    private Animation animation;
+
+    /**
+     * 封面url
+     */
+    private String coverUrl;
 
     /**
      * 更新时间

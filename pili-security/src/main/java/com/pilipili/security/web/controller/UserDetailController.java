@@ -18,6 +18,8 @@ public class UserDetailController {
     @GetMapping("/currentUser")
     public SecurityUser getCurrentUser() {
         OAuth2Authentication auth2Authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
-        return (SecurityUser) auth2Authentication.getUserAuthentication().getPrincipal();
+        SecurityUser securityUser = (SecurityUser) auth2Authentication.getUserAuthentication().getPrincipal();
+        securityUser.setPassword("");
+        return securityUser;
     }
 }

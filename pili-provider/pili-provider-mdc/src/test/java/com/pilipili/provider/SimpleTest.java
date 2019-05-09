@@ -1,6 +1,6 @@
 package com.pilipili.provider;
 
-import com.pilipili.provider.dao.VideoLabelRelDAO;
+import com.pilipili.provider.entity.SearchResultEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class SimpleTest {
 
-    @Autowired
-    private VideoLabelRelDAO videoLabelRelDAO;
 
     @Test
     public void doTest() {
-        System.out.println(videoLabelRelDAO.findAllByVideoId(1L));
     }
+
 }

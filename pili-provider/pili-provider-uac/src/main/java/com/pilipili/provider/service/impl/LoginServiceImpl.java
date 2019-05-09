@@ -1,6 +1,6 @@
 package com.pilipili.provider.service.impl;
 
-import com.pilipili.common.util.BusinessException;
+import com.pilipili.common.exception.BusinessException;
 import com.pilipili.provider.dao.RolePrivilegeRelDAO;
 import com.pilipili.provider.dao.UserDAO;
 import com.pilipili.provider.dao.UserRoleRelDAO;
@@ -40,22 +40,22 @@ public class LoginServiceImpl implements LoginService {
     public LoginUserDTO login(String username) {
         try {
             // 查用户
-            User user = userDAO.getByLoginNameAndStatusCdIsNot(username, -1);
-            if(user != null) {
+            User user = userDAO.getByLoginNameOrEmailAndStatusCdIsNot(username, username, - 1);
+            if (user != null) {
                 //查角色
                 List<UserRoleRel> userRoleRelList = userRoleRelDAO.findAllByUser(user);
-                if(CollectionUtils.isEmpty(userRoleRelList)) {
+                if (CollectionUtils.isEmpty(userRoleRelList)) {
                     throw new BusinessException("当前用户未分配角色");
                 }
                 List<Role> roles = new ArrayList<>();
                 userRoleRelList.forEach(userRoleRel -> {
-                    if(userRoleRel.getRole().getStatusCd() == 1) {
+                    if (userRoleRel.getRole().getStatusCd() == 1) {
                         roles.add(userRoleRel.getRole());
                     }
                 });
                 //查权限
                 List<RolePrivilegeRel> rolePrivilegeRelList = rolePrivilegeRelDAO.findAllByRoleIn(roles);
-                if(CollectionUtils.isEmpty(rolePrivilegeRelList)) {
+                if (CollectionUtils.isEmpty(rolePrivilegeRelList)) {
                     throw new BusinessException("当前用户下的所有角色都未分配权限");
                 }
                 Set<Long> privilegeIdSet = new HashSet<>();
@@ -66,10 +66,9 @@ public class LoginServiceImpl implements LoginService {
                 return loginUserDTO;
             }
             return null;
-        }catch (BusinessException e) {
+        } catch (BusinessException e) {
             throw new BusinessException(e.getMessage());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new BusinessException("登录操作异常", e);
         }
     }

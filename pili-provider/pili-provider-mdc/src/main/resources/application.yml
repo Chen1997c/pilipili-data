@@ -4,8 +4,7 @@ spring:
   application:
     name: @pom.artifactId@
   jpa:
-    hibernate:
-      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
   datasource:
     url: jdbc:mysql:///pili_base_db?useSSL=false&serverTimezone=Asia/Shanghai
@@ -13,6 +12,17 @@ spring:
     password: root
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 100000MB
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-nodes: 127.0.0.1:9300
+    mongodb:
+      uri: mongodb://localhost:27017/pilipili
 web:
   upload-path:
     D:/pilipili_data/temp/
@@ -22,3 +32,11 @@ web:
       video_cover: /images/video_cover/
       # 用户头像地址
       user_avatar: /images/user/avatar/
+    media:
+      video: /media/video/
+security:
+  oauth2:
+    resource:
+      id: @pom.artifactId@
+      user-info-uri: http://localhost:8004/api/uaa/currentUser
+      prefer-token-info: false

@@ -1,6 +1,6 @@
 package com.pilipili.provider.feign.fallback;
 
-import com.pilipili.common.util.ResultWrapper;
+import com.pilipili.common.response.ResultWrapper;
 import com.pilipili.provider.feign.UserFeignService;
 import org.springframework.stereotype.Component;
 

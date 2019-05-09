@@ -2,10 +2,11 @@ package com.pilipili.provider.dao;
 
 import com.pilipili.provider.dto.AnimationRecommendDTO;
 import com.pilipili.provider.entity.AnimationRecommend;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
 
 /**
  * 描述： animationRecommend dao
@@ -17,9 +18,10 @@ public interface AnimationRecommendDAO extends JpaRepository<AnimationRecommend,
 
     /**
      * 关联查询所有
+     * @param pageable
      * @return
      */
     @Query(value = "select new com.pilipili.provider.dto.AnimationRecommendDTO(a.id,ar.recommendCoverUrl,a.name,ad.profiles,a.lastUpdateTime) from AnimationRecommend  ar, Animation a, AnimationDetails ad where ar.animation.id=a.id and a.id = ad.animation.id ")
-    List<AnimationRecommendDTO> listAll();
+    Page<AnimationRecommendDTO> listAll(Pageable pageable);
 
 }

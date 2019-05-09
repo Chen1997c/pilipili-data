@@ -1,7 +1,7 @@
 package com.pilipili.provider.web;
 
-import com.pilipili.common.util.BusinessException;
-import com.pilipili.common.util.ResultWrapper;
+import com.pilipili.common.exception.BusinessException;
+import com.pilipili.common.response.ResultWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -26,6 +26,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public ResultWrapper handleException(Exception e) {
         log.error("系统异常=====>{}",e);
-        return ResultWrapper.responseFail(e.getMessage());
+        return ResultWrapper.responseFail("系统异常，请求失败");
     }
 }

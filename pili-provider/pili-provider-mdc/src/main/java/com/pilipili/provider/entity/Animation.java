@@ -27,39 +27,10 @@ public class Animation {
     private Long id;
 
     /**
-     * 名称
-     */
-    @Column(length = 50, nullable = false)
-    private String name;
-
-
-    /**
-     * 类型 1正片 2剧场版 3其他
-     */
-    @Column(nullable = false)
-    private Integer type;
-
-    /**
-     * 播放状态 1完结 2连载
-     */
-    @Column(nullable = false)
-    private Integer playStatus;
-
-    /**
      * 地区代码 1:国产 2日本 3美国 4其他
      */
     @Column(nullable = false)
     private Integer districtCd;
-
-    /**
-     * 开播季度
-     */
-    private Integer startSeason;
-
-    /**
-     * 最后更新时间
-     */
-    private Date lastUpdateTime;
 
     /**
      * 更新时间
@@ -72,4 +43,34 @@ public class Animation {
      */
     @CreatedDate
     private Date gmtCreate;
+
+
+    /**
+     * 名称
+     */
+    @Column(length = 50, nullable = false)
+    private String name;
+
+    /**
+     * 播放状态 1完结 2连载
+     */
+    @Column(nullable = false)
+    private Integer playStatus;
+
+    /**
+     * 开播季度
+     */
+    private Integer startSeason;
+
+    /**
+     * 类型 1正片 2剧场版 3其他
+     */
+    @Column(nullable = false)
+    private Integer type;
+
+    /**
+     * 最后更新时间
+     */
+    private Date lastUpdateTime;
+
 }

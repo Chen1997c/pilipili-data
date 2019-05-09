@@ -3,6 +3,8 @@ package com.pilipili.provider.dto;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.Column;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -39,6 +41,26 @@ public class LoginUserDTO {
      * 头像路径
      */
     private String avatarUrl;
+
+
+    /**
+     * 性别 1男 2女 其他 保密
+     */
+    private Integer sexCode;
+
+    @Column(columnDefinition = "date")
+    private Date birthday;
+
+    /**
+     * 个性签名
+     */
+    private String signature;
+
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     /**
      * 状态码(1 正常 0 不可用 -1 待删除)

@@ -1,6 +1,6 @@
 package com.pilipili.security.web.endpoint;
 
-import com.pilipili.common.util.ResultWrapper;
+import com.pilipili.common.response.ResultWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.oauth2.provider.endpoint.FrameworkEndpoint;

@@ -6,13 +6,11 @@
     <modules>
         <module>pili-eureka</module>
         <module>pili-zuul</module>
-        <module>pili-com.pilipili.provider</module>
-        <module>pili-com.pilipili.provider-api</module>
         <module>pili-config</module>
         <module>pili-common</module>
         <module>pili-security</module>
         <module>pili-monitor</module>
-        <module>pili-resource</module>
+        <module>pili-provider-api</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -5,6 +5,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -64,6 +65,11 @@ public class AnimationDetails {
      * 封面url
      */
     private String coverUrl;
+
+    /**
+     * 开播时间
+     */
+    private Date startDate;
 
     /**
      * 更新时间

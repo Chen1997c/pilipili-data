@@ -35,8 +35,9 @@ public class AnimationLike {
     /**
      * 番剧id
      */
-    @Column(nullable = false)
-    private Long animationId;
+    @JoinColumn(name = "animation_id",nullable = false)
+    @ManyToOne
+    private Animation animation;
 
     /**
      * 更新时间

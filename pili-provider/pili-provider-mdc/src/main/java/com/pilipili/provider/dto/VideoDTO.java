@@ -5,6 +5,7 @@ import com.pilipili.provider.entity.Video;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,8 +16,9 @@ import java.util.List;
  */
 @Data
 @ToString
-public class VideoDTO {
+public class VideoDTO implements Serializable {
 
+    private static final long serialVersionUID = 6243091051215658229L;
     /**
      * 视频实体
      */

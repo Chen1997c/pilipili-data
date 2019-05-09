@@ -16,17 +16,13 @@ import java.util.List;
 public interface AnimationDetailsDAO extends JpaRepository<AnimationDetails, Long> {
 
     /**
-     * 查询全部
-     * @return
-     */
-    @Query(value = "select new com.pilipili.provider.dto.AnimationRandomDTO(ad.animation.id,ad.animation.name,ad.episodes,ad.coverUrl) from AnimationDetails ad")
-    List<AnimationRandomDTO> listAll();
-
-    /**
      * 根据区域查询
      * @param districtCd
+     * @param userId
      * @return
      */
-    @Query(value = "select new com.pilipili.provider.dto.AnimationRandomDTO(ad.animation.id,ad.animation.name,ad.episodes,ad.coverUrl) from AnimationDetails ad where ad.animation.districtCd=:districtCd")
-    List<AnimationRandomDTO> listAllByDistrictCd(Integer districtCd);
+    @Query(value = "select new com.pilipili.provider.dto.AnimationRandomDTO(ad.animation.id,ad.animation.name,ad.episodes,ad.coverUrl, al.id) from AnimationDetails ad " +
+            "left join AnimationLike al on ad.animation.id=al.animation.id and al.userId=:userId "  +
+            "where ad.animation.districtCd=:districtCd")
+    List<AnimationRandomDTO> listAllByDistrictCd(Integer districtCd, Long userId);
 }

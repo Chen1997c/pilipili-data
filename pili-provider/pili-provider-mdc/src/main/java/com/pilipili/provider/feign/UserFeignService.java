@@ -1,6 +1,6 @@
 package com.pilipili.provider.feign;
 
-import com.pilipili.common.util.ResultWrapper;
+import com.pilipili.common.response.ResultWrapper;
 import com.pilipili.provider.feign.fallback.UserFeignServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

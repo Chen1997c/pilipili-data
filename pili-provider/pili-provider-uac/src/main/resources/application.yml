@@ -4,10 +4,25 @@ spring:
   application:
     name: @pom.artifactId@
   jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   datasource:
     url: jdbc:mysql:///pili_base_db?useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
+  mail:
+    host: smtp.qq.com
+    username: 1095394636@qq.com
+    password: chfyrzzmfheufeac
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+security:
+  oauth2:
+    resource:
+      id: @pom.artifactId@
+      user-info-uri: http://localhost:8004/api/uaa/currentUser
+      prefer-token-info: false

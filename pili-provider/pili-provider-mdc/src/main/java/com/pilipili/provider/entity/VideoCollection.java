@@ -35,7 +35,14 @@ public class VideoCollection {
     /**
      * 视频id
      */
+    @Column(nullable = false)
     private Long videoId;
+
+    /**
+     * 收藏夹id 0表示默认收藏夹
+     */
+    @Column(nullable = false)
+    private Long videoFavoriteId;
 
     /**
      * 更新时间

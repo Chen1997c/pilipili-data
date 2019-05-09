@@ -1,6 +1,6 @@
 package com.pilipili.provider.web.fronted;
 
-import com.pilipili.common.util.ResultWrapper;
+import com.pilipili.common.response.ResultWrapper;
 import com.pilipili.provider.dto.LoginUserDTO;
 import com.pilipili.provider.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;

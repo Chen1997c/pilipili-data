@@ -1,7 +1,7 @@
 package com.pilipili.security.authentication;
 
 import com.pilipili.common.util.ObjectUtil;
-import com.pilipili.common.util.ResultWrapper;
+import com.pilipili.common.response.ResultWrapper;
 import com.pilipili.security.feign.LoginFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

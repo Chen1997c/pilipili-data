@@ -1,8 +1,8 @@
 package com.pilipili.provider.web.fronted;
 
-import com.pilipili.common.util.ResultWrapper;
-import com.pilipili.provider.entity.User;
+import com.pilipili.common.response.ResultWrapper;
 import com.pilipili.provider.service.RegisterService;
+import com.pilipili.provider.vo.RegisterVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,14 +29,21 @@ public class RegisterFeignController {
     }
 
     @PostMapping("/register")
-    public ResultWrapper register(@RequestBody User user) {
-        registerService.register(user);
-        return ResultWrapper.responseSuccess("注册成功");
+    public ResultWrapper register(@RequestBody RegisterVO registerVO) {
+        Integer result = registerService.register(registerVO);
+        if (result == 0) {
+            return ResultWrapper.responseFail("邮箱验证码错误");
+        } else {
+            return ResultWrapper.responseSuccess("注册成功", result);
+        }
     }
 
     @GetMapping("/emailCode")
-    public ResultWrapper emailValidateCode(String email) {
-        String emailCode =  registerService.generateEmailCode(email);
-        return ResultWrapper.responseSuccess(emailCode);
+    public ResultWrapper emailValidateCode(@RequestParam String email) {
+        Integer result = registerService.generateEmailCode(email);
+        if (result == 0) {
+            return ResultWrapper.responseFail("该邮箱已被使用");
+        }
+        return ResultWrapper.responseSuccess("验证码发送成功", null);
     }
 }

@@ -3,6 +3,7 @@ package com.pilipili.provider.dao;
 import com.pilipili.provider.entity.User;
 import com.pilipili.provider.entity.UserRoleRel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
@@ -15,10 +16,11 @@ import java.util.List;
  * @author ChenJianChuan
  * @date 2019/3/5　11:17
  */
-public interface UserRoleRelDAO extends JpaRepository<UserRoleRel, Long> {
+public interface UserRoleRelDAO extends JpaRepository<UserRoleRel, Long>, JpaSpecificationExecutor<UserRoleRel> {
 
     /**
      * 查询用户拥有的角色
+     * @param user
      * @return
      */
     List<UserRoleRel> findAllByUser(User user);
@@ -29,7 +31,7 @@ public interface UserRoleRelDAO extends JpaRepository<UserRoleRel, Long> {
      * @param roleId
      */
     @Modifying
-    @Transactional
-    @Query(value = "insert into user_role_rel(user_id,role_id,gmt_update,gmt_modified) values(?1,?2,now(),now())", nativeQuery = true)
+    @Transactional(rollbackOn = RuntimeException.class)
+    @Query(value = "insert into user_role_rel(user_id,role_id,gmt_create,gmt_modified) values(?1,?2,now(),now())", nativeQuery = true)
     void addUserRoleRel(Long userID, Long roleId);
 }

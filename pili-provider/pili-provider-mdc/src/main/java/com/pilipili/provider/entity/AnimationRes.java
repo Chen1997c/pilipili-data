@@ -45,6 +45,11 @@ public class AnimationRes {
     private String path;
 
     /**
+     * 封面url
+     */
+    private String coverUrl;
+
+    /**
      * 集名
      */
     private String episodeName;
@@ -52,6 +57,11 @@ public class AnimationRes {
     @JoinColumn(name = "animation_id", nullable = false)
     @ManyToOne
     private Animation animation;
+
+    /**
+     * 时长
+     */
+     private String duration;
 
     /**
      * 更新时间

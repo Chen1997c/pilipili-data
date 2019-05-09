@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -21,8 +22,9 @@ import java.util.Date;
 @Entity
 @Table(name = "video")
 @EntityListeners(AuditingEntityListener.class)
-public class Video {
+public class Video implements Serializable {
 
+    private static final long serialVersionUID = -718422300676625763L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,6 +42,11 @@ public class Video {
     private Long postUserId;
 
     /**
+     * 状态 1通过审核 0待审核 -1未通过审核 -2删除
+     */
+    private Integer statusCd = 1;
+
+    /**
      * 简介
      */
     private String profiles;
@@ -53,7 +60,6 @@ public class Video {
      * 时长
      */
     private String duration;
-
 
     /**
      * 资源路径
@@ -78,6 +84,18 @@ public class Video {
      * 是否推荐
      */
     private Boolean recommend = false;
+
+    /**
+     * 分区id
+     */
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "channel_sub_id")
+    private ChannelSub channelSub;
+
+    /**
+     * 是否需要授权 1是 0否
+     */
+    private Integer authRequired;
 
     /**
      * 更新时间

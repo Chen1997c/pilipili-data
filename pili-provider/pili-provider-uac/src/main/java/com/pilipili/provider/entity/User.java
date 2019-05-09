@@ -1,5 +1,6 @@
 package com.pilipili.provider.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
@@ -50,9 +51,28 @@ public class User {
     private String avatarUrl;
 
     /**
+     * 性别 1男 2女 其他 保密
+     */
+    private Integer sexCode;
+
+    @Column(columnDefinition = "date")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Date birthday;
+
+    /**
+     * 个性签名
+     */
+    private String signature;
+
+    /**
      * 状态码(1 正常 0 不可用 -1 删除)
      */
     private Integer statusCd = 1;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     /**
      * 更新时间

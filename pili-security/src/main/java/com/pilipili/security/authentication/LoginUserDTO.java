@@ -2,8 +2,8 @@ package com.pilipili.security.authentication;
 
 import lombok.Data;
 import lombok.ToString;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -29,7 +29,6 @@ public class LoginUserDTO {
     /**
      * 登录密码
      */
-    @JsonIgnore
     private String password;
 
     /**
@@ -41,6 +40,25 @@ public class LoginUserDTO {
      * 头像路径
      */
     private String avatarUrl;
+
+
+    /**
+     * 性别 1男 2女 其他 保密
+     */
+    private Integer sexCode;
+
+    private Date birthday;
+
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 个性签名
+     */
+    private String signature;
 
     /**
      * 状态码(1 正常 0 不可用 -1 待删除)

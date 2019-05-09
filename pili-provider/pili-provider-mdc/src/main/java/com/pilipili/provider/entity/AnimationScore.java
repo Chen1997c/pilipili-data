@@ -27,10 +27,11 @@ public class AnimationScore {
     private Long id;
 
     /**
-     * 用户id
+     * 用户实体
      */
-    @Column(nullable = false)
-    private Long userId;
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private User user;
 
     /**
      * 番剧id
@@ -45,8 +46,15 @@ public class AnimationScore {
     private Integer score;
 
     /**
-     * 评论消息
+     * 评分时间
      */
+    @Column(nullable = false)
+    private Date scoreTime;
+
+    /**
+     * 评分评价
+     */
+    @Column(nullable = false)
     private String commentMessage;
 
     /**

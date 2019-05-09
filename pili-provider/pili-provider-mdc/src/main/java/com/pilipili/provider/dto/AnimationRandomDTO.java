@@ -17,6 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class AnimationRandomDTO {
 
+
     /**
      * 番剧id
      */
@@ -36,4 +37,9 @@ public class AnimationRandomDTO {
      * 封面url
      */
     private String coverUrl;
+
+    /**
+     * 是否追番了 不为空就是
+     */
+    private Long isLike;
 }
